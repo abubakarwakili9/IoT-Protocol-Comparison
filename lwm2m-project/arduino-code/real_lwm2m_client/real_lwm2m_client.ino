@@ -3,9 +3,9 @@
 #include <ArduinoJson.h>
 
 // ===== CONFIGURATION - MODIFY THESE VALUES =====
-const char* ssid = "WiFi name";           // Change to your WiFi name
-const char* password = "WiFi password";         // Change to your WiFi password
-const char* lwm2m_server_ip = "192.16.105.185"; // Change to your computer's IP
+const char* ssid = "Redmi Note 12S";           // Change to your WiFi name
+const char* password = "Abdon@654321";         // Change to your WiFi password
+const char* lwm2m_server_ip = "192.168.105.182"; // Change to your computer's IP
 const int lwm2m_server_port = 5683;
 
 // ===== DEVICE INFORMATION =====
