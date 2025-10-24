@@ -1,10 +1,10 @@
 # REPRODUCIBILITY GUIDE
 ## IoT Protocol Comparison: LwM2M vs Matter
 
-**Purpose:** This document guides reviewers and researchers in reproducing the results of this comparative protocol overhead study.
+**Purpose:** This document guides researchers in reproducing the results of this comparative protocol overhead study.
 
 **Document Version:** 1.0  
-**Last Updated:** January 2025
+**Last Updated:** October, 2025
 
 ---
 
@@ -30,21 +30,18 @@
 **1.1 Matter Data Generation**
 - **What:** Specification-based message structure modeling
 - **Reproducibility:** 100% - deterministic code-based generation
-- **Time:** 5 minutes
 - **Equipment:** Any computer with Rust installed
 - **Output:** Identical CSV data matching published results
 
 **1.2 Statistical Analysis**
 - **What:** Comparative overhead analysis, statistical tests, metrics
 - **Reproducibility:** 100% - deterministic Python calculations
-- **Time:** 2 minutes
 - **Equipment:** Any computer with Python 3.11+
 - **Output:** Identical statistics (p-values, Cohen's d, averages)
 
 **1.3 Visualizations**
 - **What:** All charts, graphs, and infographics
 - **Reproducibility:** 100% - automated from data
-- **Time:** 3 minutes
 - **Equipment:** Any computer with Python + matplotlib
 - **Output:** Identical figures (may have minor font rendering differences)
 
@@ -53,10 +50,8 @@
 **1.4 LwM2M Real Hardware Data**
 - **What:** Message overhead measurements from Raspberry Pi Pico W
 - **Reproducibility:** High similarity expected (~95%)
-- **Time:** 2-4 hours (hardware setup + data collection)
 - **Equipment:** Raspberry Pi Pico W, WiFi network, Arduino IDE
 - **Output:** Similar values (±5-10% variance due to network conditions)
-- **Why not 100%:** Network timing, WiFi signal strength, server response times vary
 - **Validation:** Packet capture verification included
 
 ### Not Reproducible (By Design) ⚠️
@@ -92,15 +87,11 @@
 
 **Hardware Requirements (Optional - for LwM2M):**
 ```
-- Raspberry Pi Pico W (RP2350) - ~$6 USD
+- Raspberry Pi Pico W (RP2350)
 - USB-C cable
 - WiFi network (2.4GHz)
 - Computer for Arduino IDE
 ```
-
-**Estimated Costs:**
-- **Software only (Matter + Analysis):** $0 (all free/open-source)
-- **With LwM2M hardware:** ~$10-15 (Pico W + cable)
 
 ### 2.2 Minimum for Results Validation
 
@@ -112,11 +103,6 @@ If you only want to verify the published results without hardware:
 ✅ Git
 ✅ Internet connection (for package installation)
 
-# Time required: 15 minutes
-# Cost: $0
-```
-
----
 
 ## 3. Repository Setup
 
@@ -270,8 +256,6 @@ sudo apt-get install wireshark
 # Expected: ±0-2 bytes difference (timing headers)
 ```
 
-**Expected Time:** 2-4 hours (first time), 30 minutes (experienced)
-
 ### 4.3 Data Validation
 
 ```python
@@ -308,8 +292,6 @@ EOF
 
 ### 5.1 Generate Matter Simulation Data
 
-**This is 100% reproducible and deterministic:**
-
 ```bash
 # Navigate to Matter project
 cd matter-project/rs-matter-client/
@@ -330,8 +312,6 @@ head matter_research_data.csv
 wc -l matter_research_data.csv
 # Expected: 201 lines (200 messages + 1 header)
 ```
-
-**Time required:** 5 minutes (including Rust compilation)
 
 ### 5.2 Understand the Simulation
 
@@ -758,8 +738,6 @@ TOTAL           43 B     108 B    +65 B (+151%)
 □ Published benchmark alignment confirmed
 ```
 
----
-
 ## 10. Troubleshooting
 
 ### 10.1 Common Issues
@@ -896,62 +874,6 @@ if __name__ == "__main__":
 python3 verify_reproduction.py
 ```
 
----
-
-## 📞 Support for Reproduction
-
-### Getting Help
-
-**For technical issues:**
-1. Open an issue: https://github.com/abubakarwakili9/IoT-Protocol-Comparison/issues
-2. Include: Error messages, Python/Rust version, OS details
-3. Tag: `[reproduction]`
-
-**For methodology questions:**
-1. Read: `docs/METHODOLOGY.md`
-2. Email: [Your academic email]
-3. Subject: "[Reproducibility] Your question"
-
-**For hardware setup:**
-1. Check: Arduino IDE documentation
-2. Forum: Raspberry Pi Pico community
-3. Alternative: Use provided LwM2M data
-
----
-
-## 📊 Reproduction Checklist for Reviewers
-
-**Minimum reproduction (software only - 15 minutes):**
-```
-□ Clone repository
-□ Install Python dependencies
-□ Run verification script
-□ Check key metrics match
-□ Review visualizations
-```
-
-**Complete reproduction (with hardware - 4 hours):**
-```
-□ All minimum steps above
-□ Setup Raspberry Pi Pico W
-□ Collect LwM2M data
-□ Generate Matter data
-□ Run full analysis
-□ Create visualizations
-□ Cross-validate results
-```
-
-**Expert reproduction (full validation - 1 day):**
-```
-□ All complete reproduction steps
-□ Packet capture validation
-□ Specification cross-reference
-□ Published benchmark comparison
-□ Statistical power analysis
-□ Sensitivity analysis
-```
-
----
 
 ## 📚 Additional Resources
 
@@ -967,12 +889,3 @@ python3 verify_reproduction.py
 - CoAP RFC 7252: https://datatracker.ietf.org/doc/html/rfc7252
 - Eclipse Leshan (LwM2M server): https://www.eclipse.org/leshan/
 
----
-
-**Document Status:** Ready for peer review  
-**Last Tested:** January 2025  
-**Test Environment:** Ubuntu 22.04, Python 3.11, Rust 1.75
-
----
-
-*This reproducibility guide follows best practices for open science and enables independent verification of research findings.*
